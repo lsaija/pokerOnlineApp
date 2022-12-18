@@ -1,0 +1,140 @@
+<!-- Begin page content -->
+<main class="flex-shrink-0">
+    <div class="container">
+
+
+        <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="errorMessage">
+            {{errorMessage}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <div class='card'>
+            <div class='card-header'>
+                <h5>Inserisci nuovo elemento</h5>
+            </div>
+            <div class='card-body'>
+
+                <form (ngSubmit)="save(registaForm)" #registaForm="ngForm" class="row g-3">
+
+
+                    <div class="col-md-6">
+                        <label>Nome<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" placeholder="Inserire il nome" required minlength="4"
+                            id="nome" name="nome" [(ngModel)]="utente.nome" #nomeVar="ngModel"
+                            [ngClass]="{'is-invalid': (nomeVar.touched || nomeVar.dirty) && !nomeVar.valid }">
+                        <span class="invalid-feedback">
+                            <span *ngIf="nomeVar.errors?.['required']">
+                                Prego inserire un valore
+                            </span>
+                            <span *ngIf="nomeVar.errors?.['minlength']">
+                                Il campo deve avere almeno due caratteri.
+                            </span>
+                        </span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>Cognome<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" placeholder="Inserire il cognome" required minlength="4"
+                            id="cognome" name="cognome" [(ngModel)]="utente.cognome" #cognomeVar="ngModel"
+                            [ngClass]="{'is-invalid': (cognomeVar.touched || cognomeVar.dirty) && !cognomeVar.valid }">
+                        <span class="invalid-feedback">
+                            <span *ngIf="cognomeVar.errors?.['required']">
+                                Prego inserire un valore
+                            </span>
+                            <span *ngIf="cognomeVar.errors?.['minlength']">
+                                Il campo deve avere almeno due caratteri.
+                            </span>
+                        </span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>username<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" placeholder="Inserire il username" required
+                            minlength="4" id="username" name="username" [(ngModel)]="utente.username"
+                            #usernameVar="ngModel"
+                            [ngClass]="{'is-invalid': (usernameVar.touched || usernameVar.dirty) && !usernameVar.valid }">
+                        <span class="invalid-feedback">
+                            <span *ngIf="usernameVar.errors?.['required']">
+                                Prego inserire un valore
+                            </span>
+                            <span *ngIf="usernameVar.errors?.['minlength']">
+                                Il campo deve avere almeno due caratteri.
+                            </span>
+                        </span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>email<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" placeholder="Inserire il email" required
+                            minlength="4" id="email" name="email" [(ngModel)]="utente.email"
+                            #emailVar="ngModel"
+                            [ngClass]="{'is-invalid': (emailVar.touched || emailVar.dirty) && !emailVar.valid }">
+                        <span class="invalid-feedback">
+                            <span *ngIf="emailVar.errors?.['required']">
+                                Prego inserire un valore
+                            </span>
+                            <span *ngIf="emailVar.errors?.['minlength']">
+                                Il campo deve avere almeno due caratteri.
+                            </span>
+                        </span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>password<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" placeholder="Inserire password" required
+                            minlength="4" id="password" name="password" [(ngModel)]="utente.password"
+                            #passwordVar="ngModel"
+                            [ngClass]="{'is-invalid': (passwordVar.touched || passwordVar.dirty) && !passwordVar.valid }">
+                        <span class="invalid-feedback">
+                            <span *ngIf="passwordVar.errors?.['required']">
+                                Prego inserire un valore
+                            </span>
+                            <span *ngIf="passwordVar.errors?.['minlength']">
+                                Il campo deve avere almeno due caratteri.
+                            </span>
+                        </span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>Conferma Password<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" placeholder="Inserire il confermaPassword" required
+                            minlength="4" id="confermaPassword" name="confermaPassword" [(ngModel)]="utente.confermaPassword"
+                            #confermaPasswordVar="ngModel"
+                            [ngClass]="{'is-invalid': (confermaPasswordVar.touched || confermaPasswordVar.dirty) && !confermaPasswordVar.valid }">
+                        <span class="invalid-feedback">
+                            <span *ngIf="confermaPasswordVar.errors?.['required']">
+                                Prego inserire un valore
+                            </span>
+                            <span *ngIf="confermaPasswordVar.errors?.['minlength']">
+                                Il campo deve avere almeno due caratteri.
+                            </span>
+                            <span *ngIf="confermaPasswordVar!=passwordVar.errors?.['required']">
+                                Password e confermaPassword non coincidono.
+                            </span>
+                        </span>
+                    </div>
+
+
+
+
+
+
+
+                    <div class="col-12">
+                        <button type="submit" name="submit" value="submit" id="submit"
+                            class="btn btn-primary">Conferma</button>
+                    </div>
+
+
+                </form>
+
+
+                <!-- end card-body -->
+            </div>
+            <!-- end card -->
+        </div>
+        <!-- end container -->
+    </div>
+
+    <!-- end main -->
+</main>

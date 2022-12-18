@@ -1,0 +1,132 @@
+<!--<main class="flex-shrink-0">
+    <div class="container" style="width: 30%;">
+      <form (ngSubmit)="onSubmit(utenteForm)" #utenteForm="ngForm" class="row g-3">
+            <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+            <div class="form-floating">
+                <div class="col-md-12">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" placeholder="Inserire il username"
+                     required
+                    id="username" name="username" [(ngModel)]="utente.username" #usernameVar="ngModel"
+                    [ngClass]="{'is-invalid': (usernameVar.touched || usernameVar.dirty) && !usernameVar.valid }">
+                <span class="invalid-feedback">
+                    <span *ngIf="usernameVar.errors?.['required']">
+                        Prego inserire un valore
+                    </span>
+                    <span *ngIf="usernameVar.errors?.['minlength']">
+                        Il campo deve avere almeno due caratteri.
+                    </span>
+                </span>
+                </div>
+            </div>
+               
+            <div class="form-floating">
+                <div class="col-md-12">
+                    <label for="password">Password</label>
+                <input type="text" class="form-control" placeholder="Inserire la password" 
+                required pattern=""
+                id="password" name="password" [(ngModel)]="utente.password" #passwordVar="ngModel"
+                [ngClass]="{'is-invalid': (passwordVar.touched || passwordVar.dirty) && !passwordVar.valid }">
+            <span class="invalid-feedback">
+                <span *ngIf="passwordVar.errors?.['required']">
+                    Prego inserire un valore
+                </span>
+                <span *ngIf="passwordVar.errors?.['pattern']">
+                    Il campo deve avere almeno due caratteri.
+                </span>
+            </span>
+                </div>
+                
+              </div>
+
+              <button [disabled]="utenteForm.invalid" class="btn btn-primary mt-5" type="submit">Sign in</button>
+
+    </form>
+</div>
+</main>-->
+
+<!-- Begin page content -->
+<main class="flex-shrink-0">
+    <div class="container">
+
+
+        <!--<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="errorMessage">
+            {{errorMessage}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>-->
+
+        <div class='card' *ngIf="utente">
+            <div class='card-header'>
+                <h5>Login</h5>
+            </div>
+            <div class='card-body'>
+
+                <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm" class="row g-3">
+
+
+                    <div class="col-md-6">
+                        <label>Username<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" placeholder="Inserire username" required minlength="4"
+                            id="username" name="username" [(ngModel)]="utente.username" #nomeVar="ngModel"
+                            [ngClass]="{'is-invalid': (nomeVar.touched || nomeVar.dirty) && !nomeVar.valid }">
+                        <span class="invalid-feedback">
+                            <span *ngIf="nomeVar.errors?.['required']">
+                                Prego inserire un valore
+                            </span>
+                            <span *ngIf="nomeVar.errors?.['minlength']">
+                                Il campo deve avere almeno due caratteri.
+                            </span>
+                        </span>
+                    </div>
+<!--pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{6,}"-->
+                    <div class="col-md-6">
+                        <label>Password<span class="text-danger">*</span></label>
+                        <input type="password" class="form-control" placeholder="Inserire la password" 
+                        required  minlength="4"
+                            id="password" name="password" [(ngModel)]="utente.password" #cognomeVar="ngModel"
+                            [ngClass]="{'is-invalid': (cognomeVar.touched || cognomeVar.dirty) && !cognomeVar.valid }">
+                        <span class="invalid-feedback">
+                            <span *ngIf="cognomeVar.errors?.['required']">
+                                Prego inserire un valore
+                            </span>
+                            <span *ngIf="cognomeVar.errors?.['minlength']">
+                                Il campo deve avere almeno due caratteri.
+                            </span>
+                            <span *ngIf="cognomeVar.errors?.['pattern']">
+                                Il campo deve rispettare questi criteri.
+                            </span>
+                        </span>
+                    </div>
+
+                    
+                    
+
+                    
+
+
+                    <div class="col-12">
+                        <button type="submit" name="submit" value="submit" id="submit"
+                        [disabled]="loginForm.invalid"
+                            class="btn btn-primary">Login</button>
+                    </div>
+                    <br>
+                    <br>
+
+             <div >
+                <a   a class="btn btn-primary btn-lg"  routerLink="/utente/registra">Registrati
+                    </a>
+                </div>
+
+                </form>
+
+
+                <!-- end card-body -->
+            </div>
+            <!-- end card -->
+        </div>
+        <!-- end container -->
+    </div>
+
+    <!-- end main -->
+</main>

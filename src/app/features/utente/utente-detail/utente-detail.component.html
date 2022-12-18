@@ -1,0 +1,102 @@
+<!-- Begin page content -->
+<main class="flex-shrink-0">
+    <div class="container">
+
+        <div class='card'>
+            <div class='card-header'>
+                Visualizza dettaglio
+            </div>
+
+            <div class='card-body'>
+                <dl class="row">
+                    <dt class="col-sm-3 text-right">Id:</dt>
+                    <dd class="col-sm-9">{{selectedUtente?.id}}</dd>
+                </dl>
+
+                <dl class="row">
+                    <dt class="col-sm-3 text-right">Username:</dt>
+                    <dd class="col-sm-9">{{selectedUtente?.username}}</dd>
+                </dl>
+
+                <dl class="row">
+                    <dt class="col-sm-3 text-right">Nome:</dt>
+                    <dd class="col-sm-9">{{selectedUtente?.nome}}</dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-sm-3 text-right">Cognome:</dt>
+                    <dd class="col-sm-9">{{selectedUtente?.cognome}}</dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-sm-3 text-right">Email:</dt>
+                    <dd class="col-sm-9">{{selectedUtente?.email}}</dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-sm-3 text-right">Esperienza Accumulata:</dt>
+                    <dd class="col-sm-9">{{selectedUtente?.esperienzaAccumulata}}</dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-sm-3 text-right">Credito Residuo:</dt>
+                    <dd class="col-sm-9">{{selectedUtente?.creditoAccumulato}}</dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-sm-3 text-right">Data Creazione:</dt>
+                    <dd class="col-sm-9">
+                        {{selectedUtente?.dateCreated | date:'dd/MM/yyyy'}}
+                    </dd>
+                </dl>
+
+               <!-- <dl class="row">
+                    <dt class="col-sm-3 text-right">Ruolo:</dt>
+                    <dd class="col-sm-9">{{ruoloService.getRuolo(selectedUtente?.id!)  }}</dd>
+                </dl>-->
+                <dl class="row">
+                    <dt class="col-sm-3 text-right">Stato:</dt>
+                    <dd class="col-sm-9">{{selectedUtente?.stato}}</dd>
+                </dl>
+
+                <!-- info Regista -->
+             <!--   <p>
+                    <a class="btn btn-primary btn-sm" data-bs-toggle="collapse" href="#collapseExample" role="button"
+                        aria-expanded="false" aria-controls="collapseExample">
+                        Info Regista
+                    </a>
+                </p>
+                <div class="collapse" id="collapseExample">
+                    <div class="card card-body">
+                        <dl class="row">
+                            <dt class="col-sm-3 text-right">Nome:</dt>
+                            <dd class="col-sm-9">{{selectedFilm?.regista?.nome }}</dd>
+                        </dl>
+                        <dl class="row">
+                            <dt class="col-sm-3 text-right">Cognome:</dt>
+                            <dd class="col-sm-9">{{selectedFilm?.regista?.cognome}}</dd>
+                        </dl>
+                        <dl class="row">
+                            <dt class="col-sm-3 text-right">Nickname:</dt>
+                            <dd class="col-sm-9">{{selectedFilm?.regista?.nickName}}</dd>
+                        </dl>
+                        <dl class="row">
+                            <dt class="col-sm-3 text-right">Sesso:</dt>
+                            <dd class="col-sm-9">{{selectedFilm?.regista?.sesso }}</dd>
+                        </dl>
+
+                    </div>-->
+                    <!-- end info Regista -->
+                </div>
+
+                <!-- end card body -->
+            </div>
+
+            <div class='card-footer'>
+                <a routerLink="/utente/listaUtenti" class='btn btn-outline-secondary'
+                    style='width:80px'>
+                    <i class='fa fa-chevron-left'></i> Back
+                </a>
+            </div>
+            <!-- end card -->
+        </div>
+
+        <!-- end container -->
+    
+
+</main>

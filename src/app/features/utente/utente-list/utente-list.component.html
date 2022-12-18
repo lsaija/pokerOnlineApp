@@ -1,0 +1,67 @@
+<!-- Begin page content -->
+<main class="flex-shrink-0">
+    <div class="container">
+
+        <div class="alert alert-success alert-dismissible fade show " role="alert" *ngIf="confirmMessage">
+            {{confirmMessage}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <div class='card'>
+            <div class='card-header'>
+                <h5>Lista dei risultati</h5>
+            </div>
+            <div class='card-body'>
+                <a class="btn btn-primary " routerLink="/utente/create">Add New</a>
+
+                <div class='table-responsive'>
+                    <table class='table table-hover'>
+                        <thead>
+                            <tr>
+                                <th>* </th>
+                                <th>username</th>
+                                <th>Nome</th>
+                                <th>Cognome</th>
+                                <th>Email</th>
+                                <th>creditoAccumulato</th>
+                                <th>esperienzaAccumulata</th>
+                                <th>Data Creazione</th>
+                                <th>role</th>
+                                <th>stato</th>
+                            </tr>
+                        </thead>
+                        <tbody >
+                            <tr *ngFor="let utenteItem of utenti" [routerLink]="['/utente',utenteItem.id]">
+                                <td>{{utenteItem.id}}</td>
+                                <td>{{utenteItem.username}}</td>
+                                <td>{{utenteItem.nome}}</td>
+                                <td>{{utenteItem.cognome}}</td>
+                                <td>{{utenteItem.email}}</td>
+                                <td>{{utenteItem.creditoAccumulato}}</td>
+                                <td>{{utenteItem.esperienzaAccumulata}}</td>
+                                <td>{{utenteItem.dateCreated | date:'dd/MM/yyyy'}}</td>
+                                <td *appIsNoAdmin='["ROLE_ADMIN"]'>Admin</td>
+                                <td *appIsNoAdmin='["ROLE_CLASSIC_PLAYER"]'>Player</td>
+                                <td *appIsNoAdmin='["ROLE_SPECIAL_PLAYER"]'>Special Player</td>
+                                <td>{{utenteItem.stato}}</td>
+                               
+                                <button class="btn  btn-sm btn-outline-secondary "
+                                [routerLink]="['/utente/detail',utenteItem.id]!"> Dettagli</button>
+                                 <button class="btn  btn-sm btn-outline-success "
+                                [routerLink]="['/utente/edit',utenteItem.id]!"> Modifica</button>
+                           <!--<button class="btn  btn-sm btn-outline-danger "
+                                [routerLink]="['/libro/delete',libroItem.id]!"> Delete</button>-->
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- end card-body -->
+            </div>
+            <!-- end card -->
+        </div>
+
+        <!-- end container -->
+    </div>
+
+</main>
